@@ -7,15 +7,15 @@ module.exports = function (context) {
   const query = qs.stringQs(location.hash.split('#')[1] || '');
 
   if (location.hash !== '#new' && !query.id && !query.data) {
-    const rec = context.storage.get('recover');
-    if (rec && confirm('recover your map from the last time you edited?')) {
-      context.data.set({
-        ...rec,
-        recovery: true
-      });
-    } else {
-      context.storage.remove('recover');
-    }
+    // const rec = context.storage.get('recover');
+    // if (rec && confirm('recover your map from the last time you edited?')) {
+    //   context.data.set({
+    //     ...rec,
+    //     recovery: true
+    //   });
+    // } else {
+    context.storage.remove('recover');
+    // }
   }
 
   function onunload() {
